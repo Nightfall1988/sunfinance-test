@@ -1,0 +1,3 @@
+api:
+    path: /payment
+    controller: App\Controller\PaymentController::index
