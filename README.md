@@ -38,5 +38,6 @@ Once the database structure is in place, you can proceed to import data into it.
 
     To see payments by date in this format "php bin/console app:report YYYY-MM-DD":
     for example:
+    
     `php bin/console app:report 2023-01-10`
     
