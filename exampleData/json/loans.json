@@ -1,13 +1,4 @@
 [
-
-    {
-        "id": "b8d26e7b-1607-441d-8bb0-87517a874572",
-        "customerId": "c5c05eeb-ff02-4de6-b92e-a1b7f02320df",
-        "reference": "LN20221212",
-        "state": "ACTIVE",
-        "amount_issued": "66.00",
-        "amount_to_pay": "100.00"
-    },
     {
         "id": "51ed9314-955c-4014-8be2-b0e2b13588a5",
         "customerId": "c539792e-7773-4a39-9cf6-f273b2581438",
@@ -31,5 +22,13 @@
         "state": "ACTIVE",
         "amount_issued": "50.00",
         "amount_to_pay": "70.00"
+    },
+    {
+        "id": "b8d26e7b-1607-441d-8bb0-87517a874572",
+        "customerId": "c5c05eeb-ff02-4de6-b92e-a1b7f02320df",
+        "reference": "LN20221212",
+        "state": "ACTIVE",
+        "amount_issued": "66.00",
+        "amount_to_pay": "100.00"
     }
 ]

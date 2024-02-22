@@ -1,7 +1,5 @@
 <?php
 
-// src/Command/ImportLoansCommand.php
-
 namespace App\Command;
 
 use Symfony\Component\Console\Command\Command;
@@ -51,7 +49,6 @@ class ImportLoansCommand extends Command
             $this->entityManager->persist($loan);
         }
 
-        // Flush changes to the database
         $this->entityManager->flush();
 
         $output->writeln('Loans imported successfully.');
