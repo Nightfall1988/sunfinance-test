@@ -1,0 +1,14 @@
+2024-02-22 01:49:40,Invalid: Duplicate references 20221212071629, Biba, Boba, 17.99, 1234567890, LN72638091, g23654ggd7
+2024-02-22 01:49:40,Invalid: Duplicate references 20221310235959, Pupa, Lupa, 116.27, 0987654321, LN12345678, jdfhd63gh
+2024-02-22 01:49:40,Invalid: Duplicate references 20221310235959, Dupa, Lupa, 116.27, 0987654322, LN12345678, sdfjshg623
+2024-02-22 01:49:40,Invalid: Duplicate references 20221212121212, John, Doe, 200.00, , LN55522533, 897fuw2h3jh
+2024-02-22 01:49:40,Invalid: Date format Wed, 14 Dec 2022 11:20:45 +0000, Ali, Aliyev, 15.17, , LN20221212, hdgfustd672
+2024-02-22 01:49:40,Invalid: Duplicate references 20221310235959, Pupa, Lupa, 116.27, 0987654321, LN12345678, jdfhd63gh
+2024-02-22 01:49:40,Invalid: Negative amount 20221310235959, Pupa, Lupa, -12.27, 0987654321, LN12345678, ffsd2342134
+2024-02-22 01:50:33,No matching loan found for payment reference: g23654ggd7
+2024-02-22 01:50:33,Payment made: jdfhd63gh
+2024-02-22 01:50:33,Loan overpaid: sdfjshg623 LN12345678
+2024-02-22 01:50:33,Loan overpaid: 897fuw2h3jh LN55522533
+2024-02-22 01:50:33,Invalid: Date format Wed, 14 Dec 2022 11:20:45 +0000, Ali, Aliyev, 15.17, , LN20221212, hdgfustd672
+2024-02-22 01:50:33,Invalid: Duplicate references 20221310235959, Pupa, Lupa, 116.27, 0987654321, LN12345678, jdfhd63gh
+2024-02-22 01:50:33,Invalid: Negative amount 20221310235959, Pupa, Lupa, -12.27, 0987654321, LN12345678, ffsd2342134

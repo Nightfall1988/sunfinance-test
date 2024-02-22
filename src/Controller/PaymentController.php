@@ -15,7 +15,7 @@ class PaymentController extends AbstractController
     public PaymentManager $paymentManager;
 
     public PaymentRepository $paymentRepository;
-    
+
     public function __construct(PaymentManager $paymentManager, PaymentRepository $paymentRepository)
     {
         $this->paymentManager = $paymentManager;
@@ -42,21 +42,6 @@ class PaymentController extends AbstractController
             return new Response('File found');
         } else {
             return new Response('File not found');
-        }
-    }
-
-    private function api() {
-        // Example API endpoint
-        if (isset($_POST['payment'])) {
-            $paymentData = json_decode($_POST['payment'], true);
-            $paymentManager = new PaymentManager();
-            if ($paymentManager->importPayment($paymentData)) {
-                http_response_code(200); // All fine - 2XX
-                echo json_encode(['status' => 'Success']);
-            } else {
-                http_response_code(400); // Bad Request - 400
-                echo json_encode(['status' => 'Error']);
-            }
         }
     }
 }
