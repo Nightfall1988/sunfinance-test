@@ -33,3 +33,10 @@ Once the database structure is in place, you can proceed to import data into it.
     To import loan data, use:
         
     `php bin/console app:import-loans`
+
+*   **See payments by date**
+
+    To see payments by date in this format "php bin/console app:report YYYY-MM-DD":
+    for example:
+    `php bin/console app:report 2023-01-10`
+    
