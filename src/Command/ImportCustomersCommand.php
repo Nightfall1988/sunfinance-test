@@ -1,7 +1,5 @@
 <?php
 
-// src/Command/ImportLoansCommand.php
-
 namespace App\Command;
 
 use Symfony\Component\Console\Command\Command;
@@ -49,18 +47,15 @@ class ImportCustomersCommand extends Command
             }
 
             try {
-                // var_dump($customer);
-                // die;
+
                 $this->entityManager->persist($customer);
                 $this->entityManager->flush();
             } catch (\Exception $e) {
-                // Log or dump the exception for further investigation
                 dump($e->getMessage());
             }
 
         }
 
-        // Flush changes to the database
         $this->entityManager->flush();
 
         $output->writeln('Customers imported successfully.');

@@ -42,7 +42,7 @@ class PaymentManager
 
     public function importPayment($data)
     {
-        // Validate payment data
+        // Validate payment
         if (!$this->validatePayment($data)) {
             return false;
         } else {
@@ -59,7 +59,6 @@ class PaymentManager
            
         }
 
-        // Process payment
         $this->processPayment($data);
 
         return true;
@@ -125,8 +124,6 @@ class PaymentManager
             $this->invalidReason[] = 'Invalid: Negative amount';
         }
 
-        // If all checks pass, consider the payment valid
-
         if (sizeof($this->invalidReason) == 0) {
             return true;
         } else {
@@ -141,7 +138,6 @@ class PaymentManager
 
     private function processPayment($paymentData)
     {
-        // Check if the payment is valid (this check is optional and depends on your requirements)
         $loanReference = $paymentData['description'];
         $loan = $this->findLoanByReference($loanReference);
 
@@ -163,7 +159,6 @@ class PaymentManager
 
     private function createRefundPaymentOrder($refundAmount, $paymentData) {
         $dateObj = \DateTime::createFromFormat('YmdHis', date('YmdHis'));
-
         $paymentOrder = new PaymentOrder();
         $paymentOrder->setAmount($refundAmount);
         $paymentOrder->setDate($dateObj);
@@ -178,7 +173,6 @@ class PaymentManager
         $payments = $this->paymentRepository->findPaymentByDescription($loan->getReference());
         $fullAmount = array_sum(array_column($payments, 'amount'));
         $amountLeftToPay = $loan->getAmountToPay() - $fullAmount;
-
         if ($amountLeftToPay == 0) {
             $loan->markAsPaid();
             $this->entityManager->persist($loan);
@@ -186,12 +180,11 @@ class PaymentManager
             $this->markPaymentAsAssigned($paymentData['paymentReference']);
             $this->log('Loan fully paid. Payment assigned for reference: ' . $paymentData['paymentReference'] . " " . $paymentData['description']);
         } elseif ($amountLeftToPay < 0) {
-                $loan->markAsPaid();
-                $this->entityManager->persist($loan);
-                $this->entityManager->flush();
-                $this->createRefundPaymentOrder(abs($amountLeftToPay),$paymentData);
-                $this->log('Loan overpaid: ' . $paymentData['paymentReference'] . " " . $paymentData['description']);
-
+            $loan->markAsPaid();
+            $this->entityManager->persist($loan);
+            $this->entityManager->flush();
+            $this->createRefundPaymentOrder(abs($amountLeftToPay),$paymentData);
+            $this->log('Loan overpaid: ' . $paymentData['paymentReference'] . " " . $paymentData['description']);
         } else {
             $loan->setAmountToPay($amountLeftToPay);
             $this->entityManager->persist($loan);
@@ -199,11 +192,6 @@ class PaymentManager
             $this->markPaymentAsAssigned($paymentData['paymentReference']);
             $this->log('Payment made: ' . $paymentData['paymentReference']);
         }
-        
-        $loan->setAmountToPay($amountLeftToPay);
-        $loan->markAsPaid();
-        $this->entityManager->persist($loan);
-        $this->entityManager->flush();
     }
 
     private function log($message)
